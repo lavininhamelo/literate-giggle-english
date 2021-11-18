@@ -1,7 +1,23 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+// import '../../styles/globals';
+import React, { useState } from 'react';
+import type { AppProps } from 'next/app';
+import { ThemeProvider } from 'styled-components';
+import { light, dark } from 'presentation/components/Theme/theme';
+import GlobalStyles from 'presentation/components/Theme/GlobalStyles';
+import 'presentation/styles/globals.css';
+import { DefaultLayout } from 'presentation/layouts/DefaultLayout';
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+	const [isDark, setDarkTheme] = useState(false);
+
+	return (
+		<ThemeProvider theme={isDark ? dark : light}>
+			<DefaultLayout>
+				<GlobalStyles />
+				<Component {...pageProps} />
+				{/* <button onClick={() => setDarkTheme(!isDark)}>Trocar Tema</button> */}
+			</DefaultLayout>
+		</ThemeProvider>
+	);
 }
-export default MyApp
+export default MyApp;
