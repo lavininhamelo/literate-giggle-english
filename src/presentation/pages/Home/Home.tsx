@@ -1,4 +1,4 @@
-import Button from 'presentation/components/Form/Button';
+import { Button } from 'presentation/components/Form/Button';
 import React from 'react';
 import { ButtonsWrapper } from '.';
 import dynamic from 'next/dynamic';

@@ -1,4 +1,4 @@
-import Button from 'presentation/components/Form/Button';
+import { Button } from 'presentation/components/Form/Button';
 import styled from 'styled-components';
 import tw from 'twin.macro';
 
