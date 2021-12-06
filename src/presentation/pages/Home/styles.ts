@@ -9,8 +9,9 @@ export const Sidebar = styled.section`
 	background-color: ${(props) => props.theme.backgroundLightGray};
 	${tw`w-5/12 h-full rounded-3xl p-8 flex flex-col items-start`};
 `;
+
 export const ContentWrapper = styled.section`
-	${tw`w-7/12 h-full p-8`};
+	${tw`w-7/12 h-full p-8 `};
 `;
 
 export const Header = styled.header`
@@ -47,4 +48,8 @@ export const ProfilePic = styled.div`
 
 export const Image = styled.img`
 	${tw`w-20 h-20 rounded-full`};
+`;
+
+export const CategoriesWrapper = styled.div`
+	${tw`flex flex-col mt-4 overflow-y-auto`};
 `;

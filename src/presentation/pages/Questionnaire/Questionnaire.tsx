@@ -1,6 +1,8 @@
-import Button from 'presentation/components/Form/Button';
-import Input from 'presentation/components/Form/Input';
-import React, { useState } from 'react';
+import { Button } from 'presentation/components/Form';
+import { InputText as Input } from 'presentation/components/Form';
+
+import React, { ChangeEvent, useState } from 'react';
+import { Container, Title } from './styles';
 
 interface Props {}
 
@@ -9,20 +11,25 @@ export const Questionnaire: React.FC<Props> = () => {
 	const [quest1, setQuest1] = useState('');
 
 	return (
-		<div className="p-8">
+		<Container className="p-8">
+			<Title>Create new training</Title>
 			<Input
+				className="mt-4"
+				type="text"
 				name="questionnaire"
-				label="Questionnaire"
+				label="Word"
 				value={quest}
-				onChange={(event) => setQuest(event.target.value)}
+				onChange={(event: ChangeEvent<HTMLInputElement>) => setQuest(event.target.value)}
 			/>
 			<Input
-				name="questionnaire1"
+				className="mt-4"
+				type="text"
+				name="Meaning"
 				label="Teste"
 				value={quest1}
-				onChange={(event) => setQuest1(event.target.value)}
+				onChange={(event: ChangeEvent<HTMLInputElement>) => setQuest1(event.target.value)}
 			/>
-			<Button>Submit</Button>
-		</div>
+			<Button className="mt-4">Submit</Button>
+		</Container>
 	);
 };

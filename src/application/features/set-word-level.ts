@@ -5,7 +5,7 @@ import { UnexpectedError, AccessDeniedError } from 'application/errors';
 export class SetWordLevel implements UpdateWordLevel {
 	constructor(private readonly url: string, private readonly httpClient: HttpClient) {}
 
-	async update(params: UpdateWordLevel.Input): Promise<UpdateWordLevel.Output> {
+	async run(params: UpdateWordLevel.Input): Promise<UpdateWordLevel.Output> {
 		const httpResponse = await this.httpClient.request({
 			url: this.url,
 			method: 'put',

@@ -7,6 +7,11 @@ import Chart from 'react-apexcharts';
 const StudyChart: React.FC = () => {
 	const [options, setOptions] = useState({
 		colors: ['#ffaaff', '#00BAEC', '#ffce8e'],
+		tooltip: {
+			theme: 'dark',
+		},
+		foreColor: '#CCC',
+
 		stroke: {
 			width: 3,
 		},

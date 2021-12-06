@@ -2,7 +2,6 @@ import { Icon } from 'presentation/components/Icon';
 import React, { HTMLAttributes } from 'react';
 import { Label, Input, Container, InputWrapper } from './styles';
 import { useTheme } from 'styled-components';
-import { ThemeColors } from 'presentation/components/Theme/theme';
 
 interface InputProps extends HTMLAttributes<HTMLInputElement> {
 	name: string;
@@ -28,13 +27,13 @@ export const InputText: React.FC<InputProps> = ({
 	rightIcon,
 	type,
 	onIconClick,
+	className,
 	...rest
 }) => {
-	//TODO - Fix the theme interface
-	let theme = (useTheme() as unknown) as ThemeColors;
+	let theme = useTheme();
 
 	return (
-		<Container>
+		<Container className={className}>
 			{!!label && <Label htmlFor={name}>{label}</Label>}
 			<InputWrapper>
 				{!!leftIcon && <Icon name={leftIcon} size="1rem" color={theme.textLabel} />}

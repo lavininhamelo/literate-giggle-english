@@ -1,6 +1,6 @@
 import { Button } from 'presentation/components/Form/Button';
 import React from 'react';
-import { ButtonsWrapper } from '.';
+import { ButtonsWrapper, CategoriesWrapper } from '.';
 import dynamic from 'next/dynamic';
 
 const StudyChart = dynamic(
@@ -22,8 +22,13 @@ import {
 	MetricsWrapper,
 	ProfilePic,
 } from './styles';
+import CategoryProgress from 'presentation/components/Categories/CategoryProgress/CategoryProgress';
 
-const Home: React.FC = () => {
+interface Props {
+	
+}
+
+const Home: React.FC<Props> = () => {
 	return (
 		<Container>
 			<Sidebar>
@@ -39,9 +44,14 @@ const Home: React.FC = () => {
 					<Button>Go to categories</Button>
 					<Button className="ml-4">New training</Button>
 				</ButtonsWrapper>
+				<CategoriesWrapper>
+					<CategoryProgress name="Advanced Expressions" />
+					<CategoryProgress name="Clean Architecture" />
+					<CategoryProgress name="Present Continuos" />
+				</CategoriesWrapper>
 			</Sidebar>
 			<ContentWrapper>
-				<Title>Plano de Estudos</Title>
+				<Title>Study Frequency</Title>
 				<MetricsWrapper>
 					<Metric icon="favorite" title="Trained Words" value={234} color="#ffa76c" />
 					<Metric icon="favorite" title="Phrases to Learn" value={134} color="#f8aecd" />

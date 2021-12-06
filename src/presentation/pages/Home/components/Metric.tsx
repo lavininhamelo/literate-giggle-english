@@ -26,7 +26,7 @@ export { Metric };
 
 export const Container = styled.section`
 	${tw`flex items-center  rounded-lg py-4 px-6 shadow`};
-	color: ${(props) => props.theme.textLight};
+	color: #fff;
 	background-color: ${(props) => props.color};
 	min-width: 220px;
 `;
