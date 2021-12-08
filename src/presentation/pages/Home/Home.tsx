@@ -1,4 +1,4 @@
-import { Button } from 'presentation/components/Form/Button';
+import { Button } from 'presentation/components/Shared/Form/Button';
 import React from 'react';
 import { ButtonsWrapper, CategoriesWrapper } from '.';
 import dynamic from 'next/dynamic';
@@ -24,9 +24,7 @@ import {
 } from './styles';
 import CategoryProgress from 'presentation/components/Categories/CategoryProgress/CategoryProgress';
 
-interface Props {
-	
-}
+interface Props {}
 
 const Home: React.FC<Props> = () => {
 	return (

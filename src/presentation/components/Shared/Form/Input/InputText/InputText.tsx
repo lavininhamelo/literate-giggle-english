@@ -1,7 +1,12 @@
-import { Icon } from 'presentation/components/Icon';
+import { Icon } from 'presentation/components/Shared/Icon';
 import React, { HTMLAttributes } from 'react';
-import { Label, Input, Container, InputWrapper } from './styles';
+import { Label, Input, Container, InputWrapper, Result } from './styles';
 import { useTheme } from 'styled-components';
+
+interface Result {
+	message: string;
+	isError: boolean;
+}
 
 interface InputProps extends HTMLAttributes<HTMLInputElement> {
 	name: string;
@@ -10,13 +15,13 @@ interface InputProps extends HTMLAttributes<HTMLInputElement> {
 	value: string;
 	required?: boolean;
 	label?: string;
-	error?: string;
 	type: string;
 	labelClasses?: string;
 	inputClasses?: string;
 	leftIcon?: string;
 	rightIcon?: string;
 	disabled?: boolean;
+	result?: Result;
 	onIconClick?(): void;
 }
 
@@ -27,6 +32,7 @@ export const InputText: React.FC<InputProps> = ({
 	rightIcon,
 	type,
 	onIconClick,
+	result = null,
 	className,
 	...rest
 }) => {
@@ -35,7 +41,7 @@ export const InputText: React.FC<InputProps> = ({
 	return (
 		<Container className={className}>
 			{!!label && <Label htmlFor={name}>{label}</Label>}
-			<InputWrapper>
+			<InputWrapper result={result}>
 				{!!leftIcon && <Icon name={leftIcon} size="1rem" color={theme.textLabel} />}
 				<Input {...rest} type={type} name={name} />
 				{!!rightIcon && (
@@ -48,6 +54,7 @@ export const InputText: React.FC<InputProps> = ({
 					/>
 				)}
 			</InputWrapper>
+			{!!result ? <Result isError={result.isError}>{result.message}</Result> : null}
 		</Container>
 	);
 };

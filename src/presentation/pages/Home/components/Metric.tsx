@@ -1,4 +1,4 @@
-import { Icon } from 'presentation/components/Icon';
+import { Icon } from 'presentation/components/Shared/Icon';
 import React from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';

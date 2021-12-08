@@ -1,4 +1,4 @@
-import { LeftMenu } from 'presentation/components/Layout/LeftMenu';
+import { LeftMenu } from 'presentation/components/Shared/Layout/LeftMenu';
 import React from 'react';
 
 import { Container, WrapperPage } from './styles';

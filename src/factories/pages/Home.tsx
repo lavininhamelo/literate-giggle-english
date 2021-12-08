@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { makeRemoteListWords } from 'main/factories/features/list-words';
-import { makeRunSetupWords } from 'main/factories/features/setup-words';
+import { makeRemoteListWords } from 'factories/features/list-words';
+import { makeRunSetupWords } from 'factories/features/setup-words';
 
 import { Home } from 'presentation/pages/Home';
 

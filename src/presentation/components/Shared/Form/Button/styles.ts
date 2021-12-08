@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import tw from 'twin.macro';
 import { ButtonProps } from '.';
-import { ThemeColors } from '../../Theme/theme';
+import { ThemeColors } from '../../../Theme/theme';
 import { darken, lighten } from 'polished';
 
 export const Container = styled.button<ButtonProps>`

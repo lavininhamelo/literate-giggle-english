@@ -1,5 +1,5 @@
-import { Button } from 'presentation/components/Form/Button';
-import { Icon } from 'presentation/components/Icon';
+import { Button } from 'presentation/components/Shared/Form/Button';
+import { Icon } from 'presentation/components/Shared/Icon';
 import React from 'react';
 
 import {

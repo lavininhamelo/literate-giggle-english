@@ -1,4 +1,4 @@
-import { makeApiUrl, makeAxiosHttpClient } from 'main/factories/http';
+import { makeApiUrl, makeAxiosHttpClient } from 'factories/http';
 import { UpdateWordLevel } from 'domain/Word/usecases/update-level-word';
 import { SetWordLevel } from 'application/features';
 

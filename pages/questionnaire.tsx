@@ -1,5 +1,5 @@
 import type { NextPage } from 'next';
-import { QuestionnairePage } from 'main/factories/pages';
+import { QuestionnairePage } from 'factories/pages';
 
 const Questionnaire: NextPage = () => {
 	return <QuestionnairePage />;

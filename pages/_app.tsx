@@ -7,7 +7,7 @@ import styled from 'styled-components';
 import GlobalStyles from 'presentation/components/Theme/GlobalStyles';
 import 'presentation/styles/globals.css';
 import { DefaultLayout } from 'presentation/layouts/DefaultLayout';
-import { Icon } from 'presentation/components/Icon';
+import { Icon } from 'presentation/components/Shared/Icon';
 import 'react-toggle/style.css';
 import Toggle from 'react-toggle';
 
@@ -20,10 +20,11 @@ function MyApp({ Component, pageProps }: AppProps) {
 				<GlobalStyles />
 				<Component {...pageProps} />
 				<Container>
-					<Icon name="heart" type="twoTone" />
+					<Icon name="brightness_6" color="#000" className="mx-4" />
 					<Toggle defaultChecked={isDark} onChange={() => setDarkTheme(!isDark)} />
-					<span className="ml-2">Dark Mode</span>
+					<Icon name="dark_mode" color="#000" className="mx-4" />
 				</Container>
+
 				{/* <button onClick={() => setDarkTheme(!isDark)}>Trocar Tema</button> */}
 			</DefaultLayout>
 		</ThemeProvider>
@@ -32,6 +33,10 @@ function MyApp({ Component, pageProps }: AppProps) {
 export default MyApp;
 
 export const Container = styled.div`
+	position: absolute;
 	display: flex;
+	top: 0;
+	right: 0;
+	padding: 16px;
 	align-items: center;
 `;

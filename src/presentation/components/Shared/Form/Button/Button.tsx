@@ -1,4 +1,4 @@
-import { Icon } from 'presentation/components/Icon';
+import { Icon } from 'presentation/components/Shared/Icon';
 import React, { HTMLAttributes } from 'react';
 
 import { Container } from './styles';
