@@ -1,4 +1,4 @@
-import { HttpRequest, HttpResponse, HttpClient } from 'application/http';
+import { HttpRequest, HttpResponse, HttpClient } from 'application/adapters';
 
 import axios, { AxiosResponse } from 'axios';
 
