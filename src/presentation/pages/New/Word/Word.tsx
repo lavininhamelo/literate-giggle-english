@@ -23,7 +23,7 @@ export const Word: React.FC<Props> = ({ createNewWord }, rest) => {
 	};
 
 	return (
-		<Container className="p-8">
+		<Container {...rest} className="p-8">
 			<Title>Create new Word</Title>
 			<Input
 				className="mt-4"
