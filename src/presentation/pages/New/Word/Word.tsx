@@ -5,7 +5,7 @@ import { Button } from 'presentation/components/Shared/Form';
 import { InputText as Input } from 'presentation/components/Shared/Form';
 
 import { Container, Title } from './styles';
-import { handleError } from 'presentation/helpers/handlerError';
+import { processRequest } from 'presentation/helpers/processRequest';
 
 interface Props {
 	createNewWord: AddWord;
@@ -18,12 +18,8 @@ export const Word: React.FC<Props> = ({ createNewWord }, rest) => {
 		isIntern: false,
 	});
 
-	const handlerSubmit = (e: any) => {
-		e.preventDefault();
-		createNewWord
-			.run(wordData)
-			.then((res) => console.log(res))
-			.catch((err) => handleError(err));
+	const onSubmit = (event: any) => {
+		processRequest(event, createNewWord, wordData);
 	};
 
 	return (
@@ -55,7 +51,7 @@ export const Word: React.FC<Props> = ({ createNewWord }, rest) => {
 					})
 				}
 			/>
-			<Button className="mt-4" onClick={(e) => handlerSubmit(e)}>
+			<Button className="mt-4" onClick={(e) => onSubmit(e)}>
 				Submit
 			</Button>
 		</Container>

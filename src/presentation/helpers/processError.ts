@@ -1,6 +1,6 @@
 import { onError } from 'application/helpers';
 
-export function handleError(error: Error) {
+export function processError(error: Error) {
 	let message = onError(error);
 	alert(message);
 }
