@@ -10,5 +10,5 @@ export namespace AddWord {
 		meaning: string;
 		isIntern: boolean;
 	};
-	export type Output = Word | { fromPhrase: boolean };
+	export type Output = Word & { fromPhrase?: boolean };
 }
