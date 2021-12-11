@@ -1,6 +1,6 @@
 import { SetupWords } from 'domain/Word/usecases/setup-words';
 import { SetWordLevel } from './set-word-level';
-import { HttpClient, HttpStatusCode } from '../http';
+import { HttpClient, HttpStatusCode } from '../adapters';
 import { UnexpectedError, AccessDeniedError } from '../errors';
 
 export class RunSetupWords implements SetupWords {
@@ -20,7 +20,7 @@ export class RunSetupWords implements SetupWords {
 				if (httpResponse.body) {
 					httpResponse.body.forEach((word) => {
 						let setWordLevel = new SetWordLevel(this.url + word.id, this.httpClient);
-						setWordLevel.update({ id: word.id, level: word.level + 1 });
+						setWordLevel.run({ id: word.id, level: word.level + 1 });
 					});
 					return httpResponse.body;
 				} else return [];

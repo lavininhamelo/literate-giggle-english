@@ -1,5 +1,5 @@
 import { ListWords } from '../../domain/Word/usecases/list-words';
-import { HttpClient, HttpStatusCode } from '../http';
+import { HttpClient, HttpStatusCode } from '../adapters';
 import { UnexpectedError, AccessDeniedError } from '../errors';
 
 export class RemoteListWords implements ListWords {
