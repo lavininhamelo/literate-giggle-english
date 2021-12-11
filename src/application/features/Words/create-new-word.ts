@@ -1,6 +1,6 @@
 import { AccessDeniedError, UnexpectedError } from 'application/errors';
 import { HttpStatusCode } from 'application/adapters';
-import { AddWord } from '../../domain/Word/usecases/add-word';
+import { AddWord } from 'domain/Word/usecases/add-word';
 
 export class RemoteCreateNewWord implements AddWord {
 	constructor(private readonly url: string, private readonly httpClient: any) {}

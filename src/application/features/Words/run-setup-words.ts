@@ -1,7 +1,7 @@
 import { SetupWords } from 'domain/Word/usecases/setup-words';
 import { SetWordLevel } from './set-word-level';
-import { HttpClient, HttpStatusCode } from '../adapters';
-import { UnexpectedError, AccessDeniedError } from '../errors';
+import { HttpClient, HttpStatusCode } from 'application/adapters';
+import { UnexpectedError, AccessDeniedError } from 'application/errors';
 
 export class RunSetupWords implements SetupWords {
 	constructor(
@@ -9,10 +9,23 @@ export class RunSetupWords implements SetupWords {
 		private readonly httpClient: HttpClient<SetupWords.Output>,
 	) {}
 
+	private generateDateInterval(): string {
+		const tenDaysAgo = 240; // 24 hours * 10 days
+		let today = new Date();
+		let before = today.setHours(-tenDaysAgo);
+		let beforeDate = new Date(before);
+		return beforeDate.toISOString();
+	}
+
 	async run(): Promise<SetupWords.Output> {
+		let untrainedWordsParams = {
+			updated_at_lte: this.generateDateInterval(),
+		};
+
 		const httpResponse = await this.httpClient.request({
 			url: this.url,
 			method: 'get',
+			params: untrainedWordsParams,
 		});
 
 		switch (httpResponse.statusCode) {

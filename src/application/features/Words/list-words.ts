@@ -1,6 +1,6 @@
-import { ListWords } from '../../domain/Word/usecases/list-words';
-import { HttpClient, HttpStatusCode } from '../adapters';
-import { UnexpectedError, AccessDeniedError } from '../errors';
+import { ListWords } from 'domain/Word/usecases/list-words';
+import { HttpClient, HttpStatusCode } from 'application/adapters';
+import { UnexpectedError, AccessDeniedError } from 'application/errors';
 
 export class RemoteListWords implements ListWords {
 	constructor(private readonly url: string, private readonly httpClient: HttpClient) {}
