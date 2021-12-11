@@ -10,9 +10,11 @@ import { DefaultLayout } from 'presentation/layouts/DefaultLayout';
 import { Icon } from 'presentation/components/Shared/Icon';
 import 'react-toggle/style.css';
 import Toggle from 'react-toggle';
+import { toast, ToastContainer } from 'react-toastify';
 
 function MyApp({ Component, pageProps }: AppProps) {
 	const [isDark, setDarkTheme] = useState(false);
+	const notify = () => toast('Wow so easy !');
 
 	return (
 		<ThemeProvider theme={isDark ? dark : light}>
@@ -24,6 +26,8 @@ function MyApp({ Component, pageProps }: AppProps) {
 					<Toggle defaultChecked={isDark} onChange={() => setDarkTheme(!isDark)} />
 					<Icon name="dark_mode" color="#000" className="mx-4" />
 				</Container>
+				<ToastContainer theme={isDark ? 'dark' : 'light'} />
+				<button onClick={notify}>Notify !</button>
 
 				{/* <button onClick={() => setDarkTheme(!isDark)}>Trocar Tema</button> */}
 			</DefaultLayout>
