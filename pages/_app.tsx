@@ -14,7 +14,6 @@ import { toast, ToastContainer } from 'react-toastify';
 
 function MyApp({ Component, pageProps }: AppProps) {
 	const [isDark, setDarkTheme] = useState(false);
-	const notify = () => toast('Wow so easy !');
 
 	return (
 		<ThemeProvider theme={isDark ? dark : light}>
@@ -27,9 +26,6 @@ function MyApp({ Component, pageProps }: AppProps) {
 					<Icon name="dark_mode" color="#000" className="mx-4" />
 				</Container>
 				<ToastContainer theme={isDark ? 'dark' : 'light'} />
-				<button onClick={notify}>Notify !</button>
-
-				{/* <button onClick={() => setDarkTheme(!isDark)}>Trocar Tema</button> */}
 			</DefaultLayout>
 		</ThemeProvider>
 	);
