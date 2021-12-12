@@ -1,5 +1,3 @@
-import { Category } from 'domain/Category';
-
 export interface DeleteCategory {
 	run: (input: DeleteCategory.Input) => Promise<DeleteCategory.Output>;
 }

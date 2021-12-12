@@ -1,14 +1,14 @@
-import { ListWords } from 'domain/Word/usecases/list-words';
-import { HttpClient, HttpStatusCode } from 'application/adapters/http';
+import { DeleteCategory } from 'domain/Category/usecases/delete-category';
+import { HttpClient, HttpStatusCode } from 'application/adapters/http/index';
 import { UnexpectedError, AccessDeniedError } from 'application/errors';
 
-export class RemoteListWords implements ListWords {
+export class RemoteDeleteCategory implements DeleteCategory {
 	constructor(private readonly url: string, private readonly httpClient: HttpClient) {}
 
-	async run(): Promise<ListWords.Output> {
+	async run(params: DeleteCategory.Input): Promise<DeleteCategory.Output> {
 		const httpResponse = await this.httpClient.request({
-			url: this.url,
-			method: 'get',
+			url: this.url + `/${params.id}`,
+			method: 'delete',
 		});
 		switch (httpResponse.statusCode) {
 			case HttpStatusCode.ok:
@@ -20,5 +20,3 @@ export class RemoteListWords implements ListWords {
 		}
 	}
 }
-
-export namespace RemoteListWords {}

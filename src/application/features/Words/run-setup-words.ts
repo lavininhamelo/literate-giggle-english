@@ -1,6 +1,6 @@
 import { SetupWords } from 'domain/Word/usecases/setup-words';
 import { SetWordLevel } from './set-word-level';
-import { HttpClient, HttpStatusCode } from 'application/adapters';
+import { HttpClient, HttpStatusCode } from 'application/adapters/http';
 import { UnexpectedError, AccessDeniedError } from 'application/errors';
 
 export class RunSetupWords implements SetupWords {

@@ -1,4 +1,4 @@
-import { makeApiUrl, makeAxiosHttpClient } from '../http';
+import { makeApiUrl, makeAxiosHttpClient } from 'factories/http';
 import { ListWords } from 'domain/Word/usecases/list-words';
 import { RemoteListWords } from 'application/features';
 

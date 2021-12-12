@@ -1,5 +1,5 @@
 import { UpdateWordLevel } from 'domain/Word/usecases/update-level-word';
-import { HttpClient, HttpStatusCode } from 'application/adapters/index';
+import { HttpClient, HttpStatusCode } from 'application/adapters/http/index';
 import { UnexpectedError, AccessDeniedError } from 'application/errors';
 
 export class SetWordLevel implements UpdateWordLevel {
