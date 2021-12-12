@@ -2,7 +2,7 @@ import { DeleteCategory } from 'domain/Category/usecases/delete-category';
 import { HttpClient, HttpStatusCode } from 'application/adapters/http/index';
 import { UnexpectedError, AccessDeniedError } from 'application/errors';
 
-export class RemoteDeleteCategory implements DeleteCategory {
+export class HttpDeleteCategory implements DeleteCategory {
 	constructor(private readonly url: string, private readonly httpClient: HttpClient) {}
 
 	async run(params: DeleteCategory.Input): Promise<DeleteCategory.Output> {

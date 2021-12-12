@@ -1,6 +1,6 @@
-import { makeApiUrl, makeAxiosHttpClient } from 'factories/http';
+import { buildApiUrl, buildAxiosHttpClient } from 'factories/http';
 import { DeleteCategory } from 'domain/Category';
-import { RemoteDeleteCategory } from 'application/features';
+import { HttpDeleteCategory } from 'application/features';
 
-export const makeDeleteCategory = (): DeleteCategory =>
-	new RemoteDeleteCategory(makeApiUrl('/categories'), makeAxiosHttpClient());
+export const buildDeleteCategory = (): DeleteCategory =>
+	new HttpDeleteCategory(buildApiUrl('/categories'), buildAxiosHttpClient());

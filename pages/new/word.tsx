@@ -1,9 +1,9 @@
 import type { NextPage } from 'next';
-import { makeCreateNewWord } from 'factories/features';
+import { buildCreateNewWord } from 'factories/features';
 import { Word } from 'presentation/pages/New/Word';
 
 const WordPage: NextPage = () => {
-	let createNewWord = makeCreateNewWord();
+	let createNewWord = buildCreateNewWord();
 	return <Word createNewWord={createNewWord} />;
 };
 

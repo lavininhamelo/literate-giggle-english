@@ -1,7 +1,7 @@
-import { makeApiUrl, makeAxiosHttpClient } from 'factories/http';
+import { buildApiUrl, buildAxiosHttpClient } from 'factories/http';
 import { ListWords } from 'domain/Word/usecases/list-words';
-import { RemoteListWords } from 'application/features';
+import { HttpListWords } from 'application/features';
 
-export const makeRemoteListWords = (): ListWords => {
-	return new RemoteListWords(makeApiUrl('/words'), makeAxiosHttpClient());
+export const buildHttpListWords = (): ListWords => {
+	return new HttpListWords(buildApiUrl('/words'), buildAxiosHttpClient());
 };

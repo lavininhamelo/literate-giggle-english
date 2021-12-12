@@ -1,5 +1,5 @@
-import { makeApiUrl, makeAxiosHttpClient } from 'factories/http';
+import { buildApiUrl, buildAxiosHttpClient } from 'factories/http';
 import { RunSetupWords } from 'application/features';
 
-export const makeRunSetupWords = () =>
-	new RunSetupWords(makeApiUrl('/words/'), makeAxiosHttpClient());
+export const buildRunSetupWords = () =>
+	new RunSetupWords(buildApiUrl('/words/'), buildAxiosHttpClient());

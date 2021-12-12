@@ -2,7 +2,7 @@ import { AccessDeniedError, UnexpectedError } from 'application/errors';
 import { HttpClient, HttpStatusCode } from 'application/adapters/http';
 import { CreateCategory } from 'domain/Category';
 
-export class RemoteCreateCategory implements CreateCategory {
+export class HttpCreateCategory implements CreateCategory {
 	constructor(private readonly url: string, private readonly httpClient: HttpClient) {}
 
 	async run(params: CreateCategory.Input): Promise<CreateCategory.Output> {
@@ -27,6 +27,6 @@ export class RemoteCreateCategory implements CreateCategory {
 	}
 }
 
-export namespace RemoteCreateCategory {
+export namespace HttpCreateCategory {
 	export type Input = CreateCategory.Input;
 }

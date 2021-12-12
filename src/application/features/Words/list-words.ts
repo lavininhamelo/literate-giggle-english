@@ -2,7 +2,7 @@ import { ListWords } from 'domain/Word/usecases/list-words';
 import { HttpClient, HttpStatusCode } from 'application/adapters/http';
 import { UnexpectedError, AccessDeniedError } from 'application/errors';
 
-export class RemoteListWords implements ListWords {
+export class HttpListWords implements ListWords {
 	constructor(private readonly url: string, private readonly httpClient: HttpClient) {}
 
 	async run(): Promise<ListWords.Output> {
@@ -21,4 +21,4 @@ export class RemoteListWords implements ListWords {
 	}
 }
 
-export namespace RemoteListWords {}
+export namespace HttpListWords {}

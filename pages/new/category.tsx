@@ -1,9 +1,9 @@
 import type { NextPage } from 'next';
-import { makeCreateCategory } from 'factories/features';
+import { buildCreateCategory } from 'factories/features';
 import { Category } from 'presentation/pages/New/Category';
 
 const CategoryPage: NextPage = () => {
-	let createNewCategory = makeCreateCategory();
+	let createNewCategory = buildCreateCategory();
 	return <Category createNewCategory={createNewCategory} />;
 };
 

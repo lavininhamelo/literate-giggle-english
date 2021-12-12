@@ -1,6 +1,6 @@
-import { makeApiUrl, makeAxiosHttpClient } from 'factories/http';
+import { buildApiUrl, buildAxiosHttpClient } from 'factories/http';
 import { CreateCategory } from 'domain/Category';
-import { RemoteCreateCategory } from 'application/features';
+import { HttpCreateCategory } from 'application/features';
 
-export const makeCreateCategory = (): CreateCategory =>
-	new RemoteCreateCategory(makeApiUrl('/categories'), makeAxiosHttpClient());
+export const buildCreateCategory = (): CreateCategory =>
+	new HttpCreateCategory(buildApiUrl('/categories'), buildAxiosHttpClient());

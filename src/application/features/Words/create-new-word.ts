@@ -2,7 +2,7 @@ import { AccessDeniedError, UnexpectedError } from 'application/errors';
 import { HttpStatusCode } from 'application/adapters/http';
 import { AddWord } from 'domain/Word/usecases/add-word';
 
-export class RemoteCreateNewWord implements AddWord {
+export class HttpCreateNewWord implements AddWord {
 	constructor(private readonly url: string, private readonly httpClient: any) {}
 
 	async run(params: AddWord.Input): Promise<AddWord.Output> {
@@ -27,6 +27,6 @@ export class RemoteCreateNewWord implements AddWord {
 	}
 }
 
-export namespace RemoteAddWord {
+export namespace HttpAddWord {
 	export type Input = AddWord.Input;
 }
