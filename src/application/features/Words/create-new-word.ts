@@ -14,6 +14,7 @@ export class HttpCreateNewWord implements AddWord {
 				word: params.word,
 				meaning: params.meaning,
 				level: 10,
+				category: params?.categories,
 			},
 		});
 		switch (httpResponse.statusCode) {
@@ -25,8 +26,4 @@ export class HttpCreateNewWord implements AddWord {
 				throw new UnexpectedError();
 		}
 	}
-}
-
-export namespace HttpAddWord {
-	export type Input = AddWord.Input;
 }
