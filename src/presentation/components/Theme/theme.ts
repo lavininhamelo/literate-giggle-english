@@ -16,7 +16,7 @@ export const light: ThemeProvider = {
 export const dark: ThemeProvider = {
 	primary: '#8373c3',
 	secondary: '#e887a7',
-	white: '#475974',
+	white: '#37465d',
 	background: '#334155',
 	backgroundLayout: '#1F2937',
 	backgroundLightGray: '#3c4b62',

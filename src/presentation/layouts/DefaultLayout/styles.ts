@@ -8,5 +8,5 @@ export const Container = styled.section`
 
 export const WrapperPage = styled.main`
 	background: ${(props) => props.theme.background};
-	${tw`flex-1 min-h-full m-4 rounded-3xl`};
+	${tw`flex-1 min-h-full m-4 rounded-3xl  flex flex-col justify-start overflow-y-auto`};
 `;

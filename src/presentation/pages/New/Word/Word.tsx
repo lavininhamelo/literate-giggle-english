@@ -6,7 +6,17 @@ import { InputText as Input } from 'presentation/components/Shared/Form';
 
 import { Container, Title } from './styles';
 import { processRequest } from 'presentation/helpers/processRequest';
+import InputSelect from 'presentation/components/Shared/Form/Input/InputSelect/InputSelext';
 
+const list = [
+	{ id: 1, name: { firstname: 'Durward', lastname: 'Reynolds' }, unavailable: false },
+	{ id: 2, name: { firstname: 'Kenton ', lastname: 'Towne' }, unavailable: false },
+	{ id: 3, name: { firstname: 'Therese ', lastname: 'Wunsch' }, unavailable: false },
+	{ id: 4, name: { firstname: 'Benedict ', lastname: 'Kessler' }, unavailable: true },
+	{ id: 5, name: { firstname: 'Katelyn ', lastname: 'Rohan' }, unavailable: false },
+];
+
+const list2 = ['a', 'b', 'c', 'd', 'e'];
 interface Props {
 	createNewWord: AddWord;
 }
@@ -39,7 +49,7 @@ export const Word: React.FC<Props> = ({ createNewWord }, rest) => {
 				}
 			/>
 			<Input
-				className="mt-4"
+				className="my-4"
 				type="text"
 				name="Meaning"
 				label="Meaning"
@@ -51,6 +61,7 @@ export const Word: React.FC<Props> = ({ createNewWord }, rest) => {
 					})
 				}
 			/>
+			<InputSelect list={list} option="name.firstname" label="Category" />
 			<Button className="mt-4" onClick={(e) => onSubmit(e)}>
 				Submit
 			</Button>

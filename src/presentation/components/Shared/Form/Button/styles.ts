@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import tw from 'twin.macro';
+import ThemeProvider from 'styled-components';
 import { ButtonProps } from '.';
-import { ThemeColors } from '../../../Theme/theme';
 import { darken, lighten } from 'polished';
 
 export const Container = styled.button<ButtonProps>`
@@ -29,7 +29,7 @@ export const Container = styled.button<ButtonProps>`
 	}
 `;
 
-function getColor(color = 'primary', theme: ThemeColors) {
+function getColor(color = 'primary', theme: ThemeProvider) {
 	let finalColor: string;
 	switch (color) {
 		case 'primary':
@@ -59,7 +59,7 @@ function getColor(color = 'primary', theme: ThemeColors) {
 function getButtonSize(size: keyof typeof buttonSize = 'md') {
 	const buttonSize = {
 		sm: tw`h-7 px-2 min-w-7`,
-		md: tw`h-10 px-4 min-w-10`,
+		md: tw`h-12 px-4 min-w-12`,
 		lg: tw`h-14 px-4 min-w-14`,
 	};
 	return buttonSize[size];
@@ -68,7 +68,7 @@ function getButtonSize(size: keyof typeof buttonSize = 'md') {
 function getButtonVariant(
 	variant: keyof typeof buttonVariant = 'default',
 	color: string = 'primary',
-	theme: ThemeColors,
+	theme: ThemeProvider,
 ) {
 	const mainColor = getColor(color, theme);
 	const buttonVariant = {

@@ -6,18 +6,18 @@ interface Props extends HTMLAttributes<HTMLParagraphElement> {
 	emphasis?: boolean;
 }
 
-const Question: React.FC<Props> = ({ children, emphasis }, rest) => {
+const Question: React.FC<Props> = ({ children, emphasis, className }, rest) => {
 	return (
-		<Container {...rest} emphasis={emphasis} as={emphasis ? 'span' : 'p'}>
+		<Container {...rest} className={className} emphasis={emphasis} as={emphasis ? 'b' : 'p'}>
 			{children}
 		</Container>
 	);
 };
 
-export default Question;
+export { Question };
 
 const Container = styled.p`
 	color: ${(props) => (props.emphasis ? props.theme.primary : props.theme.textLabel)};
-	${(props) => (props.emphasis ? tw`mx-2 font-bold` : tw`font-medium`)};
-	${tw`flex text-xl md:text-2xl`};
+	${(props) => (props.emphasis ? tw`font-bold` : tw`font-medium`)};
+	${tw`text-xl md:text-2xl lg:text-3xl `};
 `;

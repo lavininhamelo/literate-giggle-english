@@ -2,23 +2,24 @@ import React, { HTMLAttributes } from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
 
-interface Props extends HTMLAttributes<HTMLDivElement> {
-	isMultiple?: boolean;
+interface Option {
+	id: number;
+	name: string;
+	isCorrect: boolean;
 }
 
-const options = [
-	{ id: 1, name: 'Option One' },
-	{ id: 2, name: 'Option Two' },
-	{ id: 3, name: 'Option Three' },
-	{ id: 4, name: 'Option Four' },
-];
+interface Props extends HTMLAttributes<HTMLDivElement> {
+	isMultiple?: boolean;
+	options: Option[];
+}
 
-export const Result: React.FC<Props> = ({ isMultiple = true, children }, rest) => {
+export const Result: React.FC<Props> = ({ isMultiple = true, options }, rest) => {
 	return (
 		<Container {...rest}>
 			{!!options &&
-				options.map((option) => (
+				options.map((option, index) => (
 					<OptionItem key={option.id}>
+						<span>{index}.</span>
 						{!!isMultiple ? (
 							<InputCheck type="checkbox" />
 						) : (
@@ -34,17 +35,22 @@ export const Result: React.FC<Props> = ({ isMultiple = true, children }, rest) =
 export default Result;
 
 export const Container = styled.div`
-	${tw`rounded p-4 text-gray-700 text-lg border-solid`}
+	${tw`rounded text-gray-700 text-lg border-solid`}
 `;
 
 const OptionItem = styled.div`
-	${tw`mt-4 flex items-center`};
+	color: ${(props) => props.theme.text};
+	${tw`mb-6 mt-4 flex items-center`};
+
+	span {
+		${tw`mr-4`}
+	}
 `;
 
 const Option = styled.p`
 	color: ${(props) => props.theme.text};
 	${(props) => (props.multiple ? tw`mx-2 font-bold` : tw`font-medium`)};
-	${tw`flex text-xl md:text-2xl`};
+	${tw`flex text-lg md:text-xl`};
 `;
 
 const InputCheck = styled.input`

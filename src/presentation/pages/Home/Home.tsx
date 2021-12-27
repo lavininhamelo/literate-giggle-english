@@ -22,7 +22,7 @@ import {
 	MetricsWrapper,
 	ProfilePic,
 } from './styles';
-import CategoryProgress from 'presentation/components/Categories/CategoryProgress/CategoryProgress';
+import CategoryProgress from 'presentation/pages/Home/components/Categories/CategoryProgress/CategoryProgress';
 
 interface Props {}
 
