@@ -1,9 +1,6 @@
-import { Category } from 'domain/Category';
+import { StudyObject } from 'domain/Base/StudyObject/StudyObject';
 
-export interface Word {
-	id: string;
+export interface Word extends StudyObject {
 	word: string;
-	level: number;
-	meaning: string;
-	categories?: [Category];
+	meaning?: string;
 }

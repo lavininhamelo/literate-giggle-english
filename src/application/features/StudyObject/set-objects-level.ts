@@ -1,11 +1,11 @@
-import { UpdateWordLevel } from 'domain/Word/usecases/update-level-word';
 import { HttpClient, HttpStatusCode } from 'application/adapters/http/index';
 import { UnexpectedError, AccessDeniedError } from 'application/errors';
+import { UpdateLevel } from 'domain/Base/StudyObject/usecases/update-level';
 
-export class SetWordLevel implements UpdateWordLevel {
+export class SetLevel implements UpdateLevel {
 	constructor(private readonly url: string, private readonly httpClient: HttpClient) {}
 
-	async run(params: UpdateWordLevel.Input): Promise<UpdateWordLevel.Output> {
+	async run(params: UpdateLevel.Input): Promise<UpdateLevel.Output> {
 		const httpResponse = await this.httpClient.request({
 			url: this.url,
 			method: 'put',
@@ -22,6 +22,6 @@ export class SetWordLevel implements UpdateWordLevel {
 	}
 }
 
-export namespace SetWordLevel {
-	export type Input = UpdateWordLevel.Input;
+export namespace SetLevel {
+	export type Input = UpdateLevel.Input;
 }
