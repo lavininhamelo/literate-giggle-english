@@ -4,7 +4,7 @@ import { ButtonsWrapper, CategoriesWrapper } from '.';
 import dynamic from 'next/dynamic';
 
 const StudyChart = dynamic(
-	(): any => {
+	() => {
 		return import('./components/Chart');
 	},
 	{ ssr: false },
@@ -32,7 +32,10 @@ const Home: React.FC<Props> = () => {
 			<Sidebar>
 				<Header>
 					<ProfilePic>
-						<Image src="https://i.pinimg.com/736x/65/cf/ec/65cfec29f32c5dce237e32f06491e7e2.jpg" />
+						<Image
+							src="https://i.pinimg.com/736x/65/cf/ec/65cfec29f32c5dce237e32f06491e7e2.jpg"
+							alt="Profile Picture"
+						/>
 					</ProfilePic>
 					<Title>
 						Welcome, <b>Lavínia!</b>
