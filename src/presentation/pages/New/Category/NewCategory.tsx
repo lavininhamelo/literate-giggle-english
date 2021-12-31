@@ -1,30 +1,15 @@
-import React, { ChangeEvent, useState } from 'react';
-import { useRouter } from 'next/router';
+import React, { ChangeEvent } from 'react';
 import { CreateCategory } from 'domain/Category';
-import { Button } from 'presentation/components/Shared/Form';
-import { InputText as Input } from 'presentation/components/Shared/Form';
-import { processRequest } from 'presentation/helpers/processRequest';
+import { Button, InputText as Input } from 'presentation/components/Shared/Form';
 import { Container, Title } from './styles';
+import { useNewCategory } from './useNewCategory';
 
 interface Props {
 	createNewCategory: CreateCategory;
 }
 
 export const Category: React.FC<Props> = ({ createNewCategory }, rest) => {
-	const router = useRouter();
-
-	const [categoryData, setCategoryData] = useState({
-		name: '',
-	});
-
-	const onSubmit = async (event: React.MouseEvent<HTMLButtonElement>) => {
-		event.preventDefault();
-		const isSuccess = await processRequest(createNewCategory, categoryData);
-		if (isSuccess) {
-			router.push('/categories');
-		}
-	};
-
+	const { categoryData, setCategoryData, onSubmit } = useNewCategory(createNewCategory);
 	return (
 		<Container {...rest} className="p-8">
 			<Title>Create new Category</Title>
