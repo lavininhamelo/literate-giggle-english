@@ -8,5 +8,5 @@ const wordsUrl = buildApiUrl('/words/');
 
 const urls = [phrasesUrl, synonymsUrl, wordsUrl];
 
-export const buildRunSetupWords = () =>
+export const buildSetupStudyObjects = () =>
 	new RunSetupStudyObjects(urls, buildAxiosHttpClient(), generateDateInterval);

@@ -1,20 +1,18 @@
-import { AccessDeniedError, UnexpectedError } from 'application/errors';
 import { HttpClient, HttpStatusCode } from 'application/adapters/http';
-import { CreateCategory } from 'domain/Category';
+import { UnexpectedError, AccessDeniedError } from 'application/errors';
+import { ListCategories } from 'domain/Category/usecases/list-categories';
 
-export class HttpCreateCategory implements CreateCategory {
+export class HttpListCategories implements ListCategories {
 	constructor(private readonly url: string, private readonly httpClient: HttpClient) {}
 
-	async run(params: CreateCategory.Input): Promise<CreateCategory.Output> {
+	async run(): Promise<ListCategories.Output> {
 		const httpResponse = await this.httpClient.request({
 			url: this.url,
-			method: 'post',
-			body: {
-				name: params.name,
-				status: true,
+			method: 'get',
+			params: {
+				_sort: 'updated_at:DESC',
 			},
 		});
-
 		switch (httpResponse.statusCode) {
 			case HttpStatusCode.ok:
 				return httpResponse.body;
@@ -26,6 +24,4 @@ export class HttpCreateCategory implements CreateCategory {
 	}
 }
 
-export namespace HttpCreateCategory {
-	export type Input = CreateCategory.Input;
-}
+export namespace HttpListCategories {}

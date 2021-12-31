@@ -4,8 +4,9 @@ import { Question } from 'presentation/components/Question';
 import { Result } from 'presentation/components/Result';
 import { Button, InputText } from 'presentation/components/Shared/Form';
 import { Icon } from 'presentation/components/Shared/Icon';
-import React from 'react';
+import React, { useEffect } from 'react';
 import ButtonReview from './components/ButtonReview';
+import { useThreeFirstCategories } from 'presentation/state/categories/selectors/selectThreeFirstCategories';
 
 import { Container, ButtonsWrapper } from './styles';
 
@@ -16,6 +17,12 @@ const Test: React.FC = () => {
 		{ id: 3, name: 'Option Three', isCorrect: true },
 		{ id: 4, name: 'Option Four', isCorrect: false },
 	];
+
+	const categories = useThreeFirstCategories();
+
+	useEffect(() => {
+		console.log(categories);
+	}, []);
 
 	return (
 		<Container className="w-full sm:w-8/12 ">

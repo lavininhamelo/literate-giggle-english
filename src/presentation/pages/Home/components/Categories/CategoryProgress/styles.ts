@@ -9,7 +9,7 @@ export const ProgressWrapper = styled.aside`
 	${tw`flex flex-col items-center mr-8`}
 
 	span {
-		${tw`text-2xl font-bold`}
+		${tw`text-xl`}
 		color: ${(props) => props.theme.secondary};
 	}
 `;
@@ -37,4 +37,9 @@ export const Text = styled.p`
 
 export const Actions = styled.footer`
 	${tw`flex`}
+`;
+
+export const TrainedTimes = styled.p`
+	color: ${(props) => props.theme.secondary};
+	${tw`text-xl font-bold`}
 `;

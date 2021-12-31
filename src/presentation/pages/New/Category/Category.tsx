@@ -16,8 +16,9 @@ export const Category: React.FC<Props> = ({ createNewCategory }, rest) => {
 		name: '',
 	});
 
-	const onSubmit = (event: any) => {
-		processRequest(event, createNewCategory, categoryData);
+	const onSubmit = (event: React.MouseEvent<HTMLButtonElement>) => {
+		event.preventDefault();
+		processRequest(createNewCategory, categoryData);
 	};
 
 	return (

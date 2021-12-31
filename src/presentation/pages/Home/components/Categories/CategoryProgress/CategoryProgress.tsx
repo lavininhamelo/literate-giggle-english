@@ -12,35 +12,46 @@ import {
 	Item,
 	Text,
 	Actions,
+	TrainedTimes,
 } from './styles';
 
 interface Props {
 	name: string;
+	wordsCount: number;
+	phrasesCount: number;
+	synonymsCount: number;
+	trainings: number;
 }
 
-const CategoryProgress: React.FC<Props> = ({ name }) => {
+const CategoryProgress: React.FC<Props> = ({
+	name,
+	wordsCount,
+	phrasesCount,
+	synonymsCount,
+	trainings,
+}) => {
 	return (
 		<Container>
 			<ProgressWrapper>
 				<Progress>
-					<Icon name="favorite" size="2rem" />
+					<TrainedTimes>{trainings || 0}</TrainedTimes>
 				</Progress>
-				<span>50%</span>
+				<span>Trainings</span>
 			</ProgressWrapper>
 			<Category>
 				<Title>{name}</Title>
 				<List>
 					<Item>
 						<Icon name="favorite" size="0.8rem" />
-						<Text>13 Palavras</Text>
+						<Text>{wordsCount || 0} Words</Text>
 					</Item>
 					<Item>
 						<Icon name="favorite" size="0.8rem" />
-						<Text>13 Phrases</Text>
+						<Text>{phrasesCount || 0} Phrases</Text>
 					</Item>
 					<Item>
 						<Icon name="favorite" size="0.8rem" />
-						<Text> 13 Synonym</Text>
+						<Text> {synonymsCount || 0} Synonym</Text>
 					</Item>
 				</List>
 				<Actions>
@@ -54,4 +65,4 @@ const CategoryProgress: React.FC<Props> = ({ name }) => {
 	);
 };
 
-export default CategoryProgress;
+export { CategoryProgress };

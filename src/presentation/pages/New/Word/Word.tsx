@@ -28,8 +28,9 @@ export const Word: React.FC<Props> = ({ createNewWord }, rest) => {
 		isIntern: false,
 	});
 
-	const onSubmit = (event: any) => {
-		processRequest(event, createNewWord, wordData);
+	const onSubmit = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+		event.preventDefault();
+		processRequest(createNewWord, wordData);
 	};
 
 	return (

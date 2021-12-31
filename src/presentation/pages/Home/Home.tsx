@@ -1,7 +1,23 @@
-import { Button } from 'presentation/components/Shared/Form/Button';
 import React from 'react';
-import { ButtonsWrapper, CategoriesWrapper } from '.';
 import dynamic from 'next/dynamic';
+import { ListCategories } from 'domain/Category/usecases/list-categories';
+import { SetupStudyObjects } from 'domain/Base';
+import { Metric } from './components/Metric';
+import { CategoryProgress } from './components/Categories';
+import { Button } from 'presentation/components/Shared/Form/Button';
+import {
+	Container,
+	ContentWrapper,
+	Sidebar,
+	ButtonsWrapper,
+	CategoriesWrapper,
+	Title,
+	Header,
+	Image,
+	MetricsWrapper,
+	ProfilePic,
+} from './styles';
+import { useHome } from './useHome';
 
 const StudyChart = dynamic(
 	() => {
@@ -10,23 +26,13 @@ const StudyChart = dynamic(
 	{ ssr: false },
 );
 
-import { Metric } from './components/Metric';
+interface Props {
+	listCategories: ListCategories;
+	setupStudyObjects: SetupStudyObjects;
+}
 
-import {
-	Container,
-	ContentWrapper,
-	Sidebar,
-	Title,
-	Header,
-	Image,
-	MetricsWrapper,
-	ProfilePic,
-} from './styles';
-import CategoryProgress from 'presentation/pages/Home/components/Categories/CategoryProgress/CategoryProgress';
-
-interface Props {}
-
-const Home: React.FC<Props> = () => {
+const Home: React.FC<Props> = ({ listCategories, setupStudyObjects }) => {
+	const { categories } = useHome(listCategories, setupStudyObjects);
 	return (
 		<Container>
 			<Sidebar>
@@ -46,9 +52,17 @@ const Home: React.FC<Props> = () => {
 					<Button className="ml-4">New training</Button>
 				</ButtonsWrapper>
 				<CategoriesWrapper>
-					<CategoryProgress name="Advanced Expressions" />
-					<CategoryProgress name="Clean Architecture" />
-					<CategoryProgress name="Present Continuos" />
+					{!!categories &&
+						categories.map((category) => (
+							<CategoryProgress
+								key={category.id}
+								name={category.name}
+								phrasesCount={category.phrases.length}
+								synonymsCount={category.synonyms.length}
+								wordsCount={category.words.length}
+								trainings={category.trainings}
+							/>
+						))}
 				</CategoriesWrapper>
 			</Sidebar>
 			<ContentWrapper>
