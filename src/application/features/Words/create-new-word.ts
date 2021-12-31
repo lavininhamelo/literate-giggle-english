@@ -14,7 +14,7 @@ export class HttpCreateNewWord implements AddWord {
 				word: params.word,
 				meaning: params.meaning,
 				level: 10,
-				category: params?.categories,
+				categories: params?.categories,
 			},
 		});
 		switch (httpResponse.statusCode) {

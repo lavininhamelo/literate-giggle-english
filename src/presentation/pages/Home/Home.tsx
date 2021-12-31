@@ -53,7 +53,7 @@ const Home: React.FC<Props> = ({ listCategories, setupStudyObjects }) => {
 					<Link href="/categories">
 						<Button>Go to categories</Button>
 					</Link>
-					<Link href="/training">
+					<Link href="/new/word">
 						<Button className="ml-4">New training</Button>
 					</Link>
 				</ButtonsWrapper>

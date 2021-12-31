@@ -1,37 +1,41 @@
-import React from 'react';
+import React, { HTMLAttributes } from 'react';
 
-import { Fragment, useState } from 'react';
+import { Fragment } from 'react';
 import { Listbox, Transition } from '@headlessui/react';
 import { Label, Select, SelectWrapper, Options, Option, Item, Icon } from './styles';
 
-interface Props {
+interface Props extends HTMLAttributes<HTMLSelectElement> {
 	list: any;
 	label?: string;
-	value?: string;
 	option?: string;
+	value?: any;
+	onChange?: (event: React.FormEvent<HTMLSelectElement>) => any;
 }
 
-const InputSelect: React.FC<Props> = ({ label = 'Select', option, value, list }, props) => {
-	const [selected, setSelected] = useState(list[0]);
-
-	function getValue(key, item) {
-		let keys = key.split('.');
-		let obj = item;
-		for (let i = 0; i < keys.length; i++) {
-			obj = obj[keys[i]];
-		}
-		return obj || 'error';
+const InputSelect: React.FC<Props> = (
+	{ label = 'Select', option, list, value, onChange },
+	props,
+) => {
+	function getOption(key, item) {
+		if (key && item) {
+			let keys = key.split('.');
+			let obj = item;
+			for (let i = 0; i < keys.length; i++) {
+				obj = obj[keys[i]];
+			}
+			return obj;
+		} else return;
 	}
 
 	return (
-		<Listbox {...props} value={selected} onChange={setSelected}>
+		<Listbox {...props} onChange={onChange} value={value}>
 			{({ open }) => (
 				<Fragment>
 					<Label>{label}</Label>
 					<Select>
 						<SelectWrapper>
 							<span className="block truncate">
-								{!!value || !!option ? getValue(option, selected) : <p>{selected}</p>}
+								{!!option ? getOption(option, value) : <p>{value}</p>}
 							</span>
 							<Icon>
 								<svg
@@ -55,12 +59,10 @@ const InputSelect: React.FC<Props> = ({ label = 'Select', option, value, list },
 							leaveTo="opacity-0">
 							<Options>
 								{list.map((item) => (
-									<Option
-										key={!!option ? getValue(option, item) : item}
-										value={!!value ? getValue(value, item) : item}>
+									<Option key={!!option ? getOption(option, item) : item} value={item}>
 										{({ selected, active }) => (
 											<Item selected={selected} active={active}>
-												{!!option ? getValue(option, item) : <p>{item}</p>}
+												{!!option ? getOption(option, item) : <p>{item}</p>}
 											</Item>
 										)}
 									</Option>

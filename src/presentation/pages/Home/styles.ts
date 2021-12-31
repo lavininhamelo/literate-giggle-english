@@ -1,4 +1,3 @@
-import { Button } from 'presentation/components/Shared/Form/Button';
 import styled from 'styled-components';
 import tw from 'twin.macro';
 
@@ -7,11 +6,11 @@ export const Container = styled.div`
 `;
 export const Sidebar = styled.section`
 	background-color: ${(props) => props.theme.backgroundLightGray};
-	${tw`w-full lg:w-4/12 h-full rounded-3xl p-8 flex flex-col items-start`};
+	${tw`w-full lg:w-6/12 xl:w-4/12 h-full rounded-3xl p-8 flex flex-col items-start`};
 `;
 
 export const ContentWrapper = styled.section`
-	${tw`w-full lg:w-8/12 hidden h-full p-8 `};
+	${tw`w-full lg:w-6/12 xl:w-8/12 hidden md:block h-full p-8 `};
 `;
 
 export const Header = styled.header`
