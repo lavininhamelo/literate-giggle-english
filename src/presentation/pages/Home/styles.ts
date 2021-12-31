@@ -7,11 +7,11 @@ export const Container = styled.div`
 `;
 export const Sidebar = styled.section`
 	background-color: ${(props) => props.theme.backgroundLightGray};
-	${tw`w-4/12 h-full rounded-3xl p-8 flex flex-col items-start`};
+	${tw`w-full lg:w-4/12 h-full rounded-3xl p-8 flex flex-col items-start`};
 `;
 
 export const ContentWrapper = styled.section`
-	${tw`w-8/12 h-full p-8 `};
+	${tw`w-full lg:w-8/12 hidden h-full p-8 `};
 `;
 
 export const Header = styled.header`
@@ -32,7 +32,7 @@ export const ButtonsWrapper = styled.div`
 `;
 
 export const MetricsWrapper = styled.main`
-	${tw`flex w-full justify-between mt-8 my-4 mb-4`};
+	${tw`flex flex-wrap w-full justify-between mt-8 my-4 mb-4`};
 `;
 
 export const Metric = styled.main`
