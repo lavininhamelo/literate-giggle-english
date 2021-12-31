@@ -1,7 +1,5 @@
 import { toast } from 'react-toastify';
 
-import 'react-toastify/dist/ReactToastify.css';
-
 export function Notify(message: string, isError = false) {
 	const positive = () =>
 		toast('🦄 ' + message, {

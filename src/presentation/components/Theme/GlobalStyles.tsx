@@ -13,10 +13,8 @@ const CustomStyles = createGlobalStyle`
   
 `;
 
-const GlobalStyles = () => (
+export const GlobalStyles = () => (
 	<>
 		<CustomStyles />
 	</>
 );
-
-export default GlobalStyles;
