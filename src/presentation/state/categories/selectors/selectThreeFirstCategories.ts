@@ -15,7 +15,7 @@ const getThreeFirstCategories = (categories: Category[]) => {
 	return threeFirstCategories;
 };
 
-export function useThreeFirstCategories() {
+export function useStateThreeFirstCategories() {
 	const threeFirstCategories = useRecoilValue(selectThreeFirstCategories);
 	return threeFirstCategories;
 }

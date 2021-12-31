@@ -1,12 +1,12 @@
 import { ListCategories } from 'domain/Category/usecases/list-categories';
 import { SetupStudyObjects } from 'domain/Base';
 import { processRequest } from 'presentation/helpers';
-import { useCategory, useThreeFirstCategories } from 'presentation/state';
+import { useStateCategory, useStateThreeFirstCategories } from 'presentation/state';
 import { useEffect } from 'react';
 
 export function useHome(listCategories: ListCategories, setupStudyObjects: SetupStudyObjects) {
-	const [, setCategories] = useCategory();
-	const categories = useThreeFirstCategories();
+	const [, setCategories] = useStateCategory();
+	const categories = useStateThreeFirstCategories();
 
 	const loadCategories = () => {
 		const load = async () => {

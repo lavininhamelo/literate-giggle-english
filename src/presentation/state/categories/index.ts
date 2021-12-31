@@ -1,4 +1,4 @@
-import { useThreeFirstCategories } from './selectors/selectThreeFirstCategories';
-import { useCategory } from './atoms/category';
+import { useStateThreeFirstCategories } from './selectors/selectThreeFirstCategories';
+import { useStateCategory } from './atoms/category';
 
-export { useThreeFirstCategories, useCategory };
+export { useStateThreeFirstCategories, useStateCategory };

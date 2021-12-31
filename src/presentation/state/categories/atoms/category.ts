@@ -8,6 +8,6 @@ export const categoryState = atom<Category[]>({
 	default: initialState,
 });
 
-export const useCategory = () => {
+export const useStateCategory = () => {
 	return useRecoilState(categoryState);
 };

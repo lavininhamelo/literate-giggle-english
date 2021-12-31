@@ -5,6 +5,6 @@ export const loadingState = atom<boolean>({
 	default: false,
 });
 
-export const useLoading = () => {
+export const useStateLoading = () => {
 	return useRecoilState(loadingState);
 };

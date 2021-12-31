@@ -1,10 +1,10 @@
 import { ListCategories } from 'domain/Category/usecases/list-categories';
 import { processRequest } from 'presentation/helpers';
-import { useCategory as _useCategory } from 'presentation/state';
+import { useStateCategory } from 'presentation/state';
 import { useEffect } from 'react';
 
 export function useCategory(listCategories: ListCategories) {
-	const [categories, setCategories] = _useCategory();
+	const [categories, setCategories] = useStateCategory();
 
 	const loadCategories = () => {
 		const load = async () => {
