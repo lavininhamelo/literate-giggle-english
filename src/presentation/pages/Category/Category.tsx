@@ -29,6 +29,7 @@ const Category: React.FC<Props> = ({ listCategories }) => {
 							phrasesCount={category.phrases.length}
 							synonymsCount={category.synonyms.length}
 							wordsCount={category.words.length}
+							flashcardsCount={category.flashcards.length}
 							trainings={category.trainings}
 						/>
 					))}
