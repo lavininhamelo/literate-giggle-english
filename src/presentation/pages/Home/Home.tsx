@@ -67,6 +67,7 @@ const Home: React.FC<Props> = ({ listCategories, setupStudyObjects }) => {
 								phrasesCount={category.phrases.length}
 								synonymsCount={category.synonyms.length}
 								wordsCount={category.words.length}
+								flashcardsCount={category.flashcards.length}
 								trainings={category.trainings}
 							/>
 						))}
@@ -75,9 +76,10 @@ const Home: React.FC<Props> = ({ listCategories, setupStudyObjects }) => {
 			<ContentWrapper>
 				<Title>Study Frequency</Title>
 				<MetricsWrapper>
-					<Metric icon="favorite" title="Trained Words" value={234} color="#ffa76c" />
-					<Metric icon="favorite" title="Phrases to Learn" value={134} color="#f8aecd" />
-					<Metric icon="favorite" title="Synonym to Use" value={54} color="#601bbb" />
+					<Metric icon="favorite" title="Learned Words" value={234} color="#ffa76c" />
+					<Metric icon="extension" title="Phrases to Learn" value={134} color="#f8aecd" />
+					<Metric icon="hotel_class" title="Synonym to Use" value={54} color="#876fee" />
+					<Metric icon="extension" title="Trained Flashcards" value={24} color="#89c4f5" />
 				</MetricsWrapper>
 				<StudyChart />
 			</ContentWrapper>

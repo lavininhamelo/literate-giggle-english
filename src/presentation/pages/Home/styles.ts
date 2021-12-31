@@ -7,11 +7,11 @@ export const Container = styled.div`
 `;
 export const Sidebar = styled.section`
 	background-color: ${(props) => props.theme.backgroundLightGray};
-	${tw`w-5/12 h-full rounded-3xl p-8 flex flex-col items-start`};
+	${tw`w-4/12 h-full rounded-3xl p-8 flex flex-col items-start`};
 `;
 
 export const ContentWrapper = styled.section`
-	${tw`w-7/12 h-full p-8 `};
+	${tw`w-8/12 h-full p-8 `};
 `;
 
 export const Header = styled.header`

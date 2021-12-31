@@ -21,10 +21,11 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 	phrasesCount: number;
 	synonymsCount: number;
 	trainings: number;
+	flashcardsCount: number;
 }
 
 const CategoryProgress: React.FC<Props> = (
-	{ name, wordsCount, phrasesCount, synonymsCount, trainings, className },
+	{ name, wordsCount, phrasesCount, synonymsCount, flashcardsCount, trainings, className },
 	...rest
 ) => {
 	return (
@@ -48,7 +49,11 @@ const CategoryProgress: React.FC<Props> = (
 					</Item>
 					<Item>
 						<Icon name="favorite" size="0.8rem" />
-						<Text> {synonymsCount || 0} Synonym</Text>
+						<Text> {synonymsCount || 0} Synonyms</Text>
+					</Item>
+					<Item>
+						<Icon name="favorite" size="0.8rem" />
+						<Text> {flashcardsCount || 0} Flashcards</Text>
 					</Item>
 				</List>
 				<Actions>

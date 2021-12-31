@@ -6,7 +6,7 @@ import Chart from 'react-apexcharts';
 
 const StudyChart: React.FC = () => {
 	const [options, setOptions] = useState({
-		colors: ['#ffaaff', '#00BAEC', '#ffce8e'],
+		colors: ['#ffce8e', '#ffaaff', '#876fee', '#00BAEC'],
 		tooltip: {
 			theme: 'dark',
 		},
@@ -30,7 +30,7 @@ const StudyChart: React.FC = () => {
 		markers: {
 			size: 5,
 			colors: ['#FFFFFF'],
-			strokeColor: ['#ffaaff', '#00BAEC', '#ffce8e'],
+			strokeColor: ['#ffce8e', '#ffaaff', '#876fee', '#00BAEC'],
 			strokeWidth: 3,
 		},
 		xaxis: {
@@ -39,7 +39,7 @@ const StudyChart: React.FC = () => {
 	});
 	const [series, setSeries] = useState([
 		{
-			name: 'Trained Words',
+			name: 'Learned Words',
 			data: [30, 10, 45, 80, 49, 40, 70, 91],
 		},
 		{
@@ -49,6 +49,10 @@ const StudyChart: React.FC = () => {
 		{
 			name: 'Synonym to Use',
 			data: [45, 25, 10, 30, 40, 30, 32, 21],
+		},
+		{
+			name: 'Trained Flashcards',
+			data: [5, 15, 20, 10, 30, 20, 2, 31],
 		},
 	]);
 
