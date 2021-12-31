@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import tw from 'twin.macro';
 
 export const Container = styled.section`
-	${tw`flex items-center mb-8 p-8 rounded-xl shadow-sm`}
+	${tw`flex items-center  p-8 rounded-xl shadow-sm`}
 	background-color: ${(props) => props.theme.white}
 `;
 export const ProgressWrapper = styled.aside`

@@ -7,11 +7,12 @@ export async function processRequest(usecase: any, params?: any, quietRequest = 
 		if (!quietRequest) {
 			Notify('Success!');
 		}
-		return result || false;
+		return result || true;
 	} catch (e) {
 		if (!quietRequest) {
 			processError(e);
 		}
+		return;
 	} finally {
 		console.log('Finish request!');
 	}

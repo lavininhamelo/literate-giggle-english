@@ -1,6 +1,6 @@
 import { Button } from 'presentation/components/Shared/Form/Button';
 import { Icon } from 'presentation/components/Shared/Icon';
-import React from 'react';
+import React, { HTMLAttributes } from 'react';
 
 import {
 	Container,
@@ -15,7 +15,7 @@ import {
 	TrainedTimes,
 } from './styles';
 
-interface Props {
+interface Props extends HTMLAttributes<HTMLDivElement> {
 	name: string;
 	wordsCount: number;
 	phrasesCount: number;
@@ -23,15 +23,12 @@ interface Props {
 	trainings: number;
 }
 
-const CategoryProgress: React.FC<Props> = ({
-	name,
-	wordsCount,
-	phrasesCount,
-	synonymsCount,
-	trainings,
-}) => {
+const CategoryProgress: React.FC<Props> = (
+	{ name, wordsCount, phrasesCount, synonymsCount, trainings, className },
+	...rest
+) => {
 	return (
-		<Container>
+		<Container className={className} {...rest}>
 			<ProgressWrapper>
 				<Progress>
 					<TrainedTimes>{trainings || 0}</TrainedTimes>

@@ -13,8 +13,6 @@
 	"dependencies": {
 		"@babel/core": "^7.16.0",
 		"@babel/runtime": "^7.16.0",
-		"@emotion/react": "^11.5.0",
-		"@emotion/styled": "^11.3.0",
 		"@headlessui/react": "^1.4.2",
 		"@storybook/builder-webpack5": "^6.3.12",
 		"@storybook/manager-webpack5": "^6.3.12",

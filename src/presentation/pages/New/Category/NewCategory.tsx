@@ -1,24 +1,28 @@
 import React, { ChangeEvent, useState } from 'react';
+import { useRouter } from 'next/router';
 import { CreateCategory } from 'domain/Category';
-
 import { Button } from 'presentation/components/Shared/Form';
 import { InputText as Input } from 'presentation/components/Shared/Form';
-
-import { Container, Title } from './styles';
 import { processRequest } from 'presentation/helpers/processRequest';
+import { Container, Title } from './styles';
 
 interface Props {
 	createNewCategory: CreateCategory;
 }
 
 export const Category: React.FC<Props> = ({ createNewCategory }, rest) => {
+	const router = useRouter();
+
 	const [categoryData, setCategoryData] = useState({
 		name: '',
 	});
 
-	const onSubmit = (event: React.MouseEvent<HTMLButtonElement>) => {
+	const onSubmit = async (event: React.MouseEvent<HTMLButtonElement>) => {
 		event.preventDefault();
-		processRequest(createNewCategory, categoryData);
+		const isSuccess = await processRequest(createNewCategory, categoryData);
+		if (isSuccess) {
+			router.push('/categories');
+		}
 	};
 
 	return (
@@ -37,9 +41,8 @@ export const Category: React.FC<Props> = ({ createNewCategory }, rest) => {
 					})
 				}
 			/>
-
 			<Button className="mt-4" onClick={(e) => onSubmit(e)}>
-				Create
+				Create category
 			</Button>
 		</Container>
 	);

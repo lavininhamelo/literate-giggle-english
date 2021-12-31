@@ -1,9 +1,11 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
+import Link from 'next/link';
+
 import { ListCategories } from 'domain/Category/usecases/list-categories';
 import { SetupStudyObjects } from 'domain/Base';
 import { Metric } from './components/Metric';
-import { CategoryProgress } from './components/Categories';
+import { CategoryProgress } from 'presentation/components/Categories';
 import { Button } from 'presentation/components/Shared/Form/Button';
 import {
 	Container,
@@ -48,8 +50,12 @@ const Home: React.FC<Props> = ({ listCategories, setupStudyObjects }) => {
 					</Title>
 				</Header>
 				<ButtonsWrapper className="mb-4">
-					<Button>Go to categories</Button>
-					<Button className="ml-4">New training</Button>
+					<Link href="/categories">
+						<Button>Go to categories</Button>
+					</Link>
+					<Link href="/training">
+						<Button className="ml-4">New training</Button>
+					</Link>
 				</ButtonsWrapper>
 				<CategoriesWrapper>
 					{!!categories &&
@@ -57,6 +63,7 @@ const Home: React.FC<Props> = ({ listCategories, setupStudyObjects }) => {
 							<CategoryProgress
 								key={category.id}
 								name={category.name}
+								className="mb-8"
 								phrasesCount={category.phrases.length}
 								synonymsCount={category.synonyms.length}
 								wordsCount={category.words.length}
