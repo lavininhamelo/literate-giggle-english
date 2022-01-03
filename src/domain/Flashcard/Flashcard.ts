@@ -1,4 +1,4 @@
-import { StudyObject } from 'domain/Base/StudyObject/StudyObject';
+import { StudyObject } from 'domain/StudyObject/StudyObject';
 
 export interface Flashcard extends StudyObject {
 	front: string;

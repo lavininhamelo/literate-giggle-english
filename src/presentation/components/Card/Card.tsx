@@ -1,5 +1,5 @@
-import React, { Component, HTMLAttributes } from 'react';
-import Question from 'presentation/components/Question/Question';
+import React, { HTMLAttributes } from 'react';
+import { Question } from 'presentation/components/Question/';
 
 import { Container } from './styles';
 

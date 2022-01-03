@@ -31,7 +31,11 @@ export const ButtonsWrapper = styled.div`
 `;
 
 export const MetricsWrapper = styled.main`
-	${tw`flex flex-wrap w-full justify-between mt-8 my-4 mb-4`};
+	${tw`w-full grid 
+	grid-cols-1
+	lg:grid-cols-2
+	xl:grid-cols-4	
+	gap-2  mt-8 my-4 mb-4`};
 `;
 
 export const Metric = styled.main`

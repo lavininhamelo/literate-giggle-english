@@ -1,35 +1,34 @@
 import React, { useState } from 'react';
 
-import { AddWord } from 'domain/Word';
+import { CreatePhrase } from 'domain/Phrase';
 import { processRequest } from 'presentation/helpers/processRequest';
 import { useStateCategory } from 'presentation/state/';
 import { Category } from 'domain/Category';
 
-export function useNewWord(createNewWord: AddWord) {
+export function useNewPhrase(createNewPhrase: CreatePhrase) {
 	const [categories] = useStateCategory();
-	const [selected, setSelected] = useState<Category>(categories[0]);
+	const [selected, setSelected] = useState<Category>();
 	const handlerChange = (event: any) => {
 		let category = event;
 		setSelected(category);
 	};
 
-	const [wordData, setWordData] = useState<AddWord.Input>({
-		word: '',
+	const [phraseData, setPhraseData] = useState<CreatePhrase.Input>({
+		phrase: '',
 		meaning: '',
-		isIntern: false,
 	});
 
 	const onSubmit = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
 		event.preventDefault();
-		const word = wordData;
-		word.categories = [selected];
-		processRequest(createNewWord, word);
+		const phrase = phraseData;
+		phrase.categories = [selected];
+		processRequest(createNewPhrase, phrase);
 	};
 
 	return {
-		wordData,
+		phraseData,
 		onSubmit,
-		setWordData,
+		setPhraseData,
 		categories,
 		handlerChange,
 		selected,

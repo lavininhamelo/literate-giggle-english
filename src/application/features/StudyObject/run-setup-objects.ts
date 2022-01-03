@@ -1,4 +1,4 @@
-import { SetupStudyObjects } from 'domain/Base/StudyObject/usecases/setup-study-objects';
+import { SetupStudyObjects } from 'domain/StudyObject/usecases/setup-study-objects';
 import { SetLevel } from './set-objects-level';
 import { HttpClient, HttpStatusCode } from 'application/adapters/http';
 import { UnexpectedError, AccessDeniedError } from 'application/errors';

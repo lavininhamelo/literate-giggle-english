@@ -26,12 +26,12 @@ const Button: React.FC<ButtonProps> = ({
 }) => {
 	return (
 		<Container
+			{...props}
 			variant={variant}
 			format={format}
 			color={color}
 			size={size}
-			shadow={shadow}
-			{...props}>
+			shadow={shadow}>
 			{props.icon && <Icon name={props.icon} color="#fff" />}
 			{children && <p>{children}</p>}
 			{props.rightIcon && <Icon name={props.rightIcon} color="#fff" />}

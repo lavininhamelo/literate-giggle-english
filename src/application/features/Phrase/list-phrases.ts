@@ -1,17 +1,14 @@
-import { HttpClient, HttpStatusCode } from 'application/adapters/http/index';
+import { ListPhrases } from 'domain/Phrase/';
+import { HttpClient, HttpStatusCode } from 'application/adapters/http';
 import { UnexpectedError, AccessDeniedError } from 'application/errors';
-import { UpdateLevel } from 'domain/StudyObject/usecases/update-level';
 
-export class HttpSetStudyLevel implements UpdateLevel {
+export class HttpListPhrases implements ListPhrases {
 	constructor(private readonly url: string, private readonly httpClient: HttpClient) {}
 
-	async run(params: UpdateLevel.Input): Promise<UpdateLevel.Output> {
+	async run(): Promise<ListPhrases.Output> {
 		const httpResponse = await this.httpClient.request({
-			url: this.url + `/${params.studyType}/${params.id}`,
-			method: 'put',
-			body: {
-				level: params.level,
-			},
+			url: this.url,
+			method: 'get',
 		});
 		switch (httpResponse.statusCode) {
 			case HttpStatusCode.ok:
@@ -23,3 +20,5 @@ export class HttpSetStudyLevel implements UpdateLevel {
 		}
 	}
 }
+
+export namespace HttpListPhrases {}

@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 
 import { ListCategories } from 'domain/Category/usecases/list-categories';
-import { SetupStudyObjects } from 'domain/Base';
+import { SetupStudyObjects } from 'domain/StudyObject';
 import { Metric } from './components/Metric';
 import { CategoryProgress } from 'presentation/components/Categories';
 import { Button } from 'presentation/components/Shared/Form/Button';
@@ -20,6 +20,7 @@ import {
 	ProfilePic,
 } from './styles';
 import { useHome } from './useHome';
+import { useStateCategoriesById } from 'presentation/state/categories/selectors/categoriesById';
 
 const StudyChart = dynamic(
 	() => {
@@ -35,6 +36,7 @@ interface Props {
 
 const Home: React.FC<Props> = ({ listCategories, setupStudyObjects }) => {
 	const { categories } = useHome(listCategories, setupStudyObjects);
+
 	return (
 		<Container>
 			<Sidebar>
@@ -76,10 +78,28 @@ const Home: React.FC<Props> = ({ listCategories, setupStudyObjects }) => {
 			<ContentWrapper>
 				<Title>Study Frequency</Title>
 				<MetricsWrapper>
-					<Metric icon="favorite" title="Learned Words" value={234} color="#ffa76c" />
-					<Metric icon="extension" title="Phrases to Learn" value={134} color="#f8aecd" />
-					<Metric icon="hotel_class" title="Synonym to Use" value={54} color="#876fee" />
-					<Metric icon="extension" title="Trained Flashcards" value={24} color="#89c4f5" />
+					<Metric to="word" icon="favorite" title="Learned Words" value={234} color="#ffa76c" />
+					<Metric
+						to="phrase"
+						icon="extension"
+						title="Phrases to Learn"
+						value={134}
+						color="#f8aecd"
+					/>
+					<Metric
+						to="synonym"
+						icon="hotel_class"
+						title="Synonym to Use"
+						value={54}
+						color="#876fee"
+					/>
+					<Metric
+						to="flashcard"
+						icon="extension"
+						title="Trained Flashcards"
+						value={24}
+						color="#89c4f5"
+					/>
 				</MetricsWrapper>
 				<StudyChart />
 			</ContentWrapper>

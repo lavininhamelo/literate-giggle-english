@@ -11,8 +11,8 @@ export function useNewCategory(createNewCategory: CreateCategory) {
 
 	const onSubmit = async (event: React.MouseEvent<HTMLButtonElement>) => {
 		event.preventDefault();
-		const isSuccess = await processRequest(createNewCategory, categoryData);
-		if (isSuccess) {
+		const isSuccessful = await processRequest(createNewCategory, categoryData);
+		if (isSuccessful) {
 			router.push('/categories');
 		}
 	};

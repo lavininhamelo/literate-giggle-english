@@ -6,7 +6,7 @@ import { Button, InputText } from 'presentation/components/Shared/Form';
 import { Icon } from 'presentation/components/Shared/Icon';
 import React, { useEffect } from 'react';
 import ButtonReview from './components/ButtonReview';
-import { useThreeFirstCategories } from 'presentation/state/categories/selectors/selectThreeFirstCategories';
+import { useStateThreeFirstCategories } from 'presentation/state/categories/selectors/selectThreeFirstCategories';
 
 import { Container, ButtonsWrapper } from './styles';
 
@@ -18,7 +18,7 @@ const Test: React.FC = () => {
 		{ id: 4, name: 'Option Four', isCorrect: false },
 	];
 
-	const categories = useThreeFirstCategories();
+	const categories = useStateThreeFirstCategories();
 
 	useEffect(() => {
 		console.log(categories);

@@ -1,5 +1,5 @@
 import { ListCategories } from 'domain/Category/usecases/list-categories';
-import { SetupStudyObjects } from 'domain/Base';
+import { SetupStudyObjects } from 'domain';
 import { processRequest } from 'presentation/helpers';
 import { useStateCategory, useStateThreeFirstCategories } from 'presentation/state';
 import { useEffect } from 'react';

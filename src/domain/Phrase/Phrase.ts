@@ -1,5 +1,5 @@
-import { StudyObject } from 'domain/Base/StudyObject/StudyObject';
+import { StudyObject } from 'domain/StudyObject/StudyObject';
 export interface Phrase extends StudyObject {
 	phrase: string;
-	meaning?: string;
+	meaning: string;
 }

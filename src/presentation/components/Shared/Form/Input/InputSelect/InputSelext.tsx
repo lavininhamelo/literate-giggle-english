@@ -28,11 +28,11 @@ const InputSelect: React.FC<Props> = (
 	}
 
 	return (
-		<Listbox {...props} onChange={onChange} value={value}>
+		<Listbox className="flex-1" {...props} onChange={onChange} value={value}>
 			{({ open }) => (
 				<Fragment>
 					<Label>{label}</Label>
-					<Select>
+					<Select className="w-full">
 						<SelectWrapper>
 							<span className="block truncate">
 								{!!option ? getOption(option, value) : <p>{value}</p>}

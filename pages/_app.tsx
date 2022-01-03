@@ -42,6 +42,6 @@ export const Container = styled.div`
 	display: flex;
 	top: 0;
 	right: 0;
-	padding: 16px;
+	padding: 32px;
 	align-items: center;
 `;

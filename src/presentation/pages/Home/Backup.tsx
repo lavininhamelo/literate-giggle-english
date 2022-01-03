@@ -1,4 +1,4 @@
-import { SetupStudyObjects } from 'domain/Base/StudyObject/usecases/setup-study-objects';
+import { SetupStudyObjects } from 'domain/StudyObject/usecases/setup-study-objects';
 import React, { useEffect } from 'react';
 
 type Props = {
